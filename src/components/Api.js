@@ -42,7 +42,6 @@ const Api = () => {
         }
 
         const data = await response.json();
-        console.log(data);
         const newMovies = data.results || [];
 
         setMovies(newMovies);
@@ -101,7 +100,7 @@ const Api = () => {
           Search
         </button>
       </div>
-      {error && <p style={{ color: "red" }} className="error">{error}</p> }
+      {error && <p style={{ color: "black" }} className="error">{error}</p> }
       <div className="flex">
         {movies.map((movie) => (
           <div key={movie.id} onClick={() => handleMovieClick(movie)} className="movies-container">
