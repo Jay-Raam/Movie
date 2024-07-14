@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { VscClose } from "react-icons/vsc";
 import { LiaUserSolid } from "react-icons/lia";
 import "./styles.css";
+import Copyright from "./copyright";
 
 const MovieDetails = () => {
   const [movieName, setMovieName] = useState("");
@@ -91,7 +92,7 @@ const MovieDetails = () => {
   return (
     <div className="movie">
       <div className="container mx-auto my-0">
-        <div className="form flex flex-col md:flex-row justify-center items-center gap-5 mt-5 mb-8">
+        <div className="form flex flex-col md:flex-row justify-center items-center gap-5 mt-8 mb-12">
           <input
             id="text"
             type="text"
@@ -100,15 +101,9 @@ const MovieDetails = () => {
             onChange={(e) => setMovieName(e.target.value)}
             placeholder="Movie Name..."
             name="input"
-            className="border-black input px-[10px] py-[11px] text-xs bg-[#e8e8e8] border-2 rounded-[5px] w-[210px] focus:outline-none placeholder:text-black/25"
+            className="input w-[320px] input px-[10px] py-[11px] bg-[#e8e8e8] border-2 rounded-[5px] focus:outline-none placeholder:text-black/25"
           />
-          <button
-            onClick={handleSearch}
-            className="cursor-pointer transition-all bg-black text-white px-6 py-2 rounded-lg
-border-black
-border-b-[4px] hover:brightness-110 hover:scale-105
-active:border-b-[2px] active:brightness-50 active:translate-y-[2px] w-[117px]"
-          >
+          <button onClick={handleSearch} className="cursor-pointer btn-2">
             Search
           </button>
         </div>
@@ -134,7 +129,7 @@ active:border-b-[2px] active:brightness-50 active:translate-y-[2px] w-[117px]"
               src={movieData.Poster}
               alt={movieData.Title}
               onClick={handlePosterClick}
-              className="cursor-pointer"
+              className="cursor-pointer hover:scale-[1.005]"
             />
             <h2
               onClick={handlePosterClick}
@@ -151,6 +146,9 @@ active:border-b-[2px] active:brightness-50 active:translate-y-[2px] w-[117px]"
             >
               Director: {movieData.Director}
             </p>
+            <button className="btn" onClick={handlePosterClick}>
+              More Info
+            </button>
           </div>
         )}
       </div>
@@ -172,7 +170,7 @@ active:border-b-[2px] active:brightness-50 active:translate-y-[2px] w-[117px]"
                   <img
                     src={selectedMovie.Poster}
                     alt="movie poster"
-                    className="mb-4 rounded-lg shadow-md mt-3"
+                    className="mb-4 rounded-lg shadow-md mt-3 hover:scale-105"
                   />
                 )}
                 <h2 className="text-xl font-bold mb-2 text-center">
@@ -260,6 +258,8 @@ active:border-b-[2px] active:brightness-50 active:translate-y-[2px] w-[117px]"
           </div>
         </div>
       )}
+
+      {<Copyright />}
     </div>
   );
 };
